@@ -1,6 +1,6 @@
 import React from 'react'
 import Cart from './Cart';
-// import ChipsetSection from './ChipsetSection';
+
 
 function CartItems(props) {
   return (

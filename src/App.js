@@ -1,4 +1,4 @@
-// src/App.js
+
 import React, { useState } from 'react';
 import ProductModule from './components/ProductModule';
 import { chipsetData, moduleData } from './productData';
@@ -13,7 +13,8 @@ const App = () => {
   const [Addtocart,setAddtocart]= useState(false)
 
   const addToCart = (id, name) => {
-    const newItem = { id, name };
+
+    const newItem = { id, name};
     setCartItems([...cartItems, newItem]);
   };
   const openCart=()=>{
@@ -62,8 +63,6 @@ const App = () => {
       ))}
         </div>
 
-      {/* <ChipsetSection addToCart={addChipsetCart} items={cartChip} />
-      <Cart cartItems={cartItems} /> */}
 
       {isOpen ? (
         <CartItems Close={closeCart} items={cartItems} addToCart={addToCart} />

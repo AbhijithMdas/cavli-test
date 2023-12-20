@@ -1,9 +1,16 @@
-// src/components/ChipsetSection.js
+
 import React, { useState } from 'react';
 import { chipsetData } from '../productData';
 
 const ChipsetSection = (props) => {
+  // filter criteria
+
+  
   const [filters, setFilters] = useState({ region: '', esim: '', formFactor: '' });
+  
+
+  // Filter chipsets 
+
 
   const filteredChipsets = chipsetData.filter(chipset => {
     return (
@@ -16,16 +23,18 @@ const ChipsetSection = (props) => {
   return (
     <div className="chipset-section">
       <h2>Chipset Section</h2>
+
+      {/* Filters */}
       <div className="filter-container">
         <div>
           <label>Region:</label>
           <select value={filters.region} onChange={(e) => setFilters({ ...filters, region: e.target.value })}>
             <option value="">Select Region</option>
             <option value="APAC">APAC</option>
-        <option value="NAM">NAM</option>
-        <option value="SAM">SAM</option>
-        <option value="EU">EU</option>
-        <option value="GLOBAL">GLOBAL</option>
+            <option value="NAM">NAM</option>
+            <option value="SAM">SAM</option>
+            <option value="EU">EU</option>
+            <option value="GLOBAL">GLOBAL</option>
           </select>
         </div>
         <div>
@@ -41,12 +50,13 @@ const ChipsetSection = (props) => {
           <select value={filters.formFactor} onChange={(e) => setFilters({ ...filters, formFactor: e.target.value })}>
             <option value="">Select Form Factor</option>
             <option value="M.2">M.2</option>
-        <option value="minPIC">minPIC</option>
-        <option value="LGA">LGA</option>
-        <option value="MiniPCI">MiniPCI</option>
+            <option value="minPIC">minPIC</option>
+            <option value="LGA">LGA</option>
+            <option value="MiniPCI">MiniPCI</option>
           </select>
         </div>
       </div>
+
 
       <div className="chipset-list">
         {filteredChipsets.map((chipset) => (
@@ -55,16 +65,17 @@ const ChipsetSection = (props) => {
             <p>
               {chipset.region}, {chipset.formFactor}
             </p>
+            
+         
             <button
               onClick={() =>
                 props.addToCart(
                   chipset.id,
                   chipset.name,
-                  chipset.name,
                   chipset.region,
                   chipset.esimCompatible,
                   chipset.formFactor,
-                  chipset.photo
+                  
                 )
               }
             >

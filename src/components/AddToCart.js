@@ -5,7 +5,11 @@ function AddToCart(props) {
     <div className="cartitem-container">
     <button onClick={props.Close}>Close</button>
       <ChipsetSection addToCart={props.addToCart} />
+    
+    
+    
     </div>
+    
   );}
 
 export default AddToCart
